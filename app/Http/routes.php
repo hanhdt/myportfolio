@@ -20,3 +20,6 @@ Route::controllers([
 	'auth' => 'Auth\AuthController',
 	'password' => 'Auth\PasswordController',
 ]);
+
+/** Skill information route resources **/
+//Route::resources('skills',)
