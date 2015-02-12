@@ -55,21 +55,48 @@
 				<li class="hidden">
 					<a href="#page-top"></a>
 				</li>
-				<li>
-					<a class="page-scroll" href="#services">Services</a>
-				</li>
-				<li>
-					<a class="page-scroll" href="#portfolio">Portfolio</a>
-				</li>
-				<li>
-					<a class="page-scroll" href="#about">About</a>
-				</li>
-				<li>
-					<a class="page-scroll" href="#team">Team</a>
-				</li>
-				<li>
-					<a class="page-scroll" href="#contact">Contact</a>
-				</li>
+				@if (Auth::guest())
+					<li>
+						<a class="page-scroll" href="#services">Skills</a>
+					</li>
+					<li>
+						<a class="page-scroll" href="#portfolio">Portfolio</a>
+					</li>
+					<li>
+						<a class="page-scroll" href="#about">About</a>
+					</li>
+					<li>
+						<a class="page-scroll" href="#team">Team</a>
+					</li>
+					<li>
+						<a class="page-scroll" href="#contact">Contact</a>
+					</li>
+					<li><a href="/auth/login">Login</a></li>
+					<li><a href="/auth/register">Register</a></li>
+				@else
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+						   aria-expanded="false">{{ Auth::user()->name }} <span class="caret"></span></a>
+						<ul class="dropdown-menu" role="menu">
+							<li><a href="/auth/logout">Logout</a></li>
+						</ul>
+					</li>
+					<li>
+						<a class="page-scroll" href="{{url('skills')}}">Skills</a>
+					</li>
+					<li>
+						<a class="page-scroll" href="{{url('projects')}}">Projects</a>
+					</li>
+					<li>
+						<a class="page-scroll" href="{{url('about')}}">About</a>
+					</li>
+					<li>
+						<a class="page-scroll" href="{{url('team')}}">Team</a>
+					</li>
+					<li>
+						<a class="page-scroll" href="{{url('contact')}}">Contact</a>
+					</li>
+				@endif
 			</ul>
 		</div>
 		<!-- /.navbar-collapse -->

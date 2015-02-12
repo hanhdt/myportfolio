@@ -5,7 +5,8 @@ use App\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
 
-class SkillInfomationController extends Controller {
+class SkillInformationController extends Controller
+{
 
 	/**
 	 * Display a listing of the resource.
@@ -14,7 +15,7 @@ class SkillInfomationController extends Controller {
 	 */
 	public function index()
 	{
-		//
+		return view('skill.index');
 	}
 
 	/**

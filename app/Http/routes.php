@@ -22,4 +22,4 @@ Route::controllers([
 ]);
 
 /** Skill information route resources **/
-//Route::resources('skills',)
+Route::resource('skills', 'SkillInformationController');
