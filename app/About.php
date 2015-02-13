@@ -18,7 +18,7 @@ class About extends Model
      *
      * @var string
      */
-    protected $table = 'abouts';
+    protected $table = 'about';
 
     /**
      * The attributes that are mass assignable.
