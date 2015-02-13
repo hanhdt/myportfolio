@@ -2,7 +2,8 @@
 
 use Illuminate\Database\Eloquent\Model;
 
-class SkillInfomation extends Model {
+class SkillInformation extends Model
+{
 
     /**
      * The database table used by the model.

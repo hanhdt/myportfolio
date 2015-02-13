@@ -1,5 +1,7 @@
 <?php namespace App\Http\Controllers;
 
+use App\SkillInformation;
+
 class WelcomeController extends Controller {
 
 	/*
@@ -30,7 +32,12 @@ class WelcomeController extends Controller {
 	 */
 	public function index()
 	{
-		return view('welcome.welcome');
+		$brief_skills = SkillInformation::all();
+
+		return view('welcome.welcome')
+			->with([
+				'skills' => $brief_skills,
+			]);
 	}
 
 	public function contact()
