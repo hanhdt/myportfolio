@@ -8,7 +8,16 @@
                     <div class="panel-heading">Home</div>
 
                     <div class="panel-body">
-                        You are logged in!
+                        <p>You are logged in!</p>
+                        <br>
+
+                        <div class="btn-group btn-group-lg">
+                            <a href="{{url('skills')}}" class="btn btn-primary">Skills</a>
+                            <a href="{{url('projects')}}" class="btn btn-primary">Projects</a>
+                            <a href="{{url('about')}}" class="btn btn-primary">About</a>
+                            <a href="{{url('team')}}" class="btn btn-primary">Team</a>
+                            <a href="{{url('contacts')}}" class="btn btn-primary">Contact</a>
+                        </div>
                     </div>
                 </div>
             </div>

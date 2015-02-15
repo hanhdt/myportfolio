@@ -5,13 +5,11 @@
         <div class="row">
             <div class="col-md-10 col-md-offset-1">
                 <div class="panel panel-default">
-                    <div class="panel-heading">Operations</div>
+                    <div class="panel-heading">Create new skill</div>
 
                     <div class="panel-body">
                         <div class="btn-group btn-group-lg">
-                            <a href="{{url('skills/create')}}" class="btn btn-primary fa fa-plus-circle fa-inverse"> Add
-                                new skill</a>
-                            <a href="{{url('skills/find')}}" class="btn btn-primary fa fa-search fa-inverse"> Find</a>
+                            <a href="{{url('skills')}}" class="btn btn-primary fa fa-minus-circle fa-inverse"> Back</a>
                         </div>
                     </div>
                 </div>

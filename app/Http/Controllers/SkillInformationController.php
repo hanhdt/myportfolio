@@ -3,6 +3,7 @@
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
+use App\SkillInformation;
 use Illuminate\Http\Request;
 
 class SkillInformationController extends Controller
@@ -14,7 +15,7 @@ class SkillInformationController extends Controller
 	 */
 	public function __construct()
 	{
-		$this->middleware('guest');
+        $this->middleware('auth');
 	}
 
 	/**
@@ -24,7 +25,9 @@ class SkillInformationController extends Controller
 	 */
 	public function index()
 	{
-		return view('skill.index');
+        $skills = SkillInformation::all();
+        return view('skill.index')
+            ->with('skills', $skills);
 	}
 
 	/**
@@ -34,7 +37,9 @@ class SkillInformationController extends Controller
 	 */
 	public function create()
 	{
-		//
+        $skills = SkillInformation::all();
+        return view('skill.create')
+            ->with('skills', $skills);
 	}
 
 	/**
