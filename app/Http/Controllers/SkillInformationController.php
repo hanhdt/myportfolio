@@ -74,7 +74,9 @@ class SkillInformationController extends Controller
 	 */
 	public function edit($id)
 	{
-		//
+        $skill = SkillInformation::find($id);
+        return view('skill.edit')
+            ->with('skill', $skill);
 	}
 
 	/**
@@ -84,8 +86,12 @@ class SkillInformationController extends Controller
 	 * @return Response
 	 */
 	public function update($id)
-	{
-		//
+    {
+        $skill = SkillInformation::find($id);
+        $skill->title = Request::get('title');
+        $skill->description = Request::get('description');
+        $skill->save();
+        return redirect('skills');
 	}
 
 	/**
@@ -96,7 +102,7 @@ class SkillInformationController extends Controller
 	 */
 	public function destroy($id)
 	{
-		//
-	}
+
+    }
 
 }
