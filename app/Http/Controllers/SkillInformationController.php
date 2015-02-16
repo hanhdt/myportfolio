@@ -4,7 +4,7 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
 use App\SkillInformation;
-use Illuminate\Http\Request;
+use Request;
 
 class SkillInformationController extends Controller
 {
@@ -37,9 +37,8 @@ class SkillInformationController extends Controller
 	 */
 	public function create()
 	{
-        $skills = SkillInformation::all();
         return view('skill.create')
-            ->with('skills', $skills);
+            ->with('method', 'post');
 	}
 
 	/**
@@ -49,7 +48,9 @@ class SkillInformationController extends Controller
 	 */
 	public function store()
 	{
-		//
+        $inputs = Request::all();
+        SkillInformation::create($inputs);
+        return redirect('skills');
 	}
 
 	/**
@@ -60,7 +61,9 @@ class SkillInformationController extends Controller
 	 */
 	public function show($id)
 	{
-		//
+        $skill = SkillInformation::find($id);
+        return view('skill.single')
+            ->with('skill', $skill);
 	}
 
 	/**

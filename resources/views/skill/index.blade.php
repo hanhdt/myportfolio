@@ -41,7 +41,7 @@
                             <i class="fa fa-desktop fa-stack-1x fa-inverse"></i>
                         @endif
                     </span>
-                <h4 class="service-heading">{{ $skill->title }}</h4>
+                <h4 class="service-heading"><a href="{{url('skills/' . $skill->id)}}">{{ $skill->title }}</a></h4>
 
                 <p class="text-muted">{{{ $skill->description }}}</p>
             </div>
