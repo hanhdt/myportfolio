@@ -22,4 +22,5 @@ Route::controllers([
 ]);
 
 /** Skill information route resources **/
+Route::get('skills/{skills}/delete', 'SkillInformationController@delete');
 Route::resource('skills', 'SkillInformationController');

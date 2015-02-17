@@ -76,7 +76,8 @@ class SkillInformationController extends Controller
 	{
         $skill = SkillInformation::find($id);
         return view('skill.edit')
-            ->with('skill', $skill);
+            ->with('skill', $skill)
+            ->with('method', 'put');
 	}
 
 	/**
@@ -102,7 +103,17 @@ class SkillInformationController extends Controller
 	 */
 	public function destroy($id)
 	{
+        $skill = SkillInformation::find($id);
+        $skill->delete();
+        return redirect('skills');
+    }
 
+    public function delete($id)
+    {
+        $skill = SkillInformation::find($id);
+        return view('skill.edit')
+            ->with('skill', $skill)
+            ->with('method', 'delete');
     }
 
 }
