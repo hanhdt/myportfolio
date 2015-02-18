@@ -1,10 +1,9 @@
 <?php namespace App\Http\Controllers;
 
 use App\Http\Requests;
-use App\Http\Controllers\Controller;
 
 use App\SkillInformation;
-use Request;
+use App\Http\Requests\Request;
 
 class SkillInformationController extends Controller
 {
@@ -92,6 +91,7 @@ class SkillInformationController extends Controller
         $skill->title = Request::get('title');
         $skill->description = Request::get('description');
         $skill->save();
+
         return redirect('skills');
 	}
 
@@ -104,7 +104,7 @@ class SkillInformationController extends Controller
 	public function destroy($id)
 	{
         $skill = SkillInformation::find($id);
-        $skill->delete();
+        $skill->delete($id);
         return redirect('skills');
     }
 
