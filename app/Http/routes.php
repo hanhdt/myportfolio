@@ -26,4 +26,5 @@ Route::get('skills/{skills}/delete', 'SkillInformationController@delete');
 Route::resource('skills', 'SkillInformationController');
 
 /** Project route resource */
+Route::get('projects/{projects}/delete', 'ProjectController@delete');
 Route::resource('projects', 'ProjectController');
