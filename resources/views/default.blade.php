@@ -71,7 +71,7 @@
                         <a class="page-scroll" href="{{url('skills')}}">Skills</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="#portfolio">Portfolio</a>
+                        <a class="page-scroll" href="#portfolio">Projects</a>
                     </li>
                     <li>
                         <a class="page-scroll" href="#about">About</a>
