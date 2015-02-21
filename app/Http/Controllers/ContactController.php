@@ -1,7 +1,7 @@
 <?php namespace App\Http\Controllers;
 
 use App\Contact;
-use Illuminate\Support\Facades\Request;
+use Request;
 
 class ContactController extends Controller
 {
@@ -13,7 +13,7 @@ class ContactController extends Controller
      */
     public function index()
     {
-        return view('welcome.contact');
+        return redirect('/home');
     }
 
     /**
@@ -23,7 +23,7 @@ class ContactController extends Controller
      */
     public function create()
     {
-        return view('welcome.contact');
+        return redirect('/home');
     }
 
     /**
@@ -46,7 +46,8 @@ class ContactController extends Controller
      */
     public function show($id)
     {
-        //
+        $contact = Contact::findOrFail($id);
+        return view('contacts.single', ['contact' => $contact]);
     }
 
     /**
@@ -57,7 +58,8 @@ class ContactController extends Controller
      */
     public function edit($id)
     {
-        //
+        $contact = Contact::findOrFail($id);
+        return view('contacts.edit', ['method' => 'put', 'contact' => $contact]);
     }
 
     /**
@@ -69,6 +71,16 @@ class ContactController extends Controller
     public function update($id)
     {
         //
+    }
+
+    public function delete($id)
+    {
+        $contact = Contact::findOrFail($id);
+
+        return view('contacts.edit', [
+            'contact' => $contact,
+            'method' => 'delete',
+        ]);
     }
 
     /**

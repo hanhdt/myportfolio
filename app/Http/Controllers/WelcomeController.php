@@ -45,11 +45,4 @@ class WelcomeController extends Controller {
 			]);
 	}
 
-    public function storeContact()
-	{
-        $inputs = Request::all();
-        Contact::create($inputs);
-        return redirect('/', 201, ['message' => 'Successfully sent message!']);
-	}
-
 }

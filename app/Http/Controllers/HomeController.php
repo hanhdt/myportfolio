@@ -1,5 +1,6 @@
 <?php namespace App\Http\Controllers;
 
+use App\Contact;
 use App\Project;
 use App\SkillInformation;
 
@@ -35,10 +36,12 @@ class HomeController extends Controller {
 	{
         $skills = SkillInformation::all();
         $projects = Project::all();
+        $contacts = Contact::all();
         return view('home')
             ->with([
                 'skills' => $skills,
                 'projects' => $projects,
+                'contacts' => $contacts,
             ]);
 	}
 

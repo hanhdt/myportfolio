@@ -7,7 +7,7 @@
 </div>
 <div class="row">
     <div class="col-lg-12">
-        {!! Form::open(array('method' => 'post', 'url' => 'contacts')) !!}
+        {!! Form::open(['method' => 'post', 'url' => 'contacts']) !!}
             <div class="row">
                 <div class="col-md-6">
                     <div class="form-group">

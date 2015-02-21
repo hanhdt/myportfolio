@@ -12,7 +12,6 @@
 */
 
 Route::get('/', 'WelcomeController@index');
-//Route::post('welcomes','WelcomeController@storeContact');
 
 Route::get('home', 'HomeController@index');
 
@@ -30,4 +29,5 @@ Route::get('projects/{projects}/delete', 'ProjectController@delete');
 Route::resource('projects', 'ProjectController');
 
 /** Contact route resource */
+Route::get('contacts/{contacts}/delete', 'ContactController@delete');
 Route::resource('contacts', 'ContactController');
