@@ -115,6 +115,18 @@
 	</div>
 </header>
 
+@if(Session::has('message'))
+    <div class="alert alert-success">
+        {{Session::get('message')}}
+    </div>
+@endif
+
+@if(Session::has('error'))
+    <div class="alert alert-warning">
+        {{Session::get('error')}}
+    </div>
+    @endif
+
 <!-- Services Section -->
 <section id="services">
 	<div class="container">

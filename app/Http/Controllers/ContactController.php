@@ -1,9 +1,7 @@
 <?php namespace App\Http\Controllers;
 
-use App\Http\Requests;
-use App\Http\Controllers\Controller;
-
-use Illuminate\Http\Request;
+use App\Contact;
+use Illuminate\Support\Facades\Request;
 
 class ContactController extends Controller
 {
@@ -15,7 +13,7 @@ class ContactController extends Controller
      */
     public function index()
     {
-        //
+        return view('welcome.contact');
     }
 
     /**
@@ -25,7 +23,7 @@ class ContactController extends Controller
      */
     public function create()
     {
-        //
+        return view('welcome.contact');
     }
 
     /**
@@ -35,7 +33,9 @@ class ContactController extends Controller
      */
     public function store()
     {
-        //
+        $inputs = Request::all();
+        Contact::create($inputs);
+        return redirect('/', 201, ['message' => 'Successfully sent message!']);
     }
 
     /**

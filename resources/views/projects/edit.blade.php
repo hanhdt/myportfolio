@@ -17,25 +17,40 @@
                     </div>
 
                     <div class="panel-body">
-                        {!! Form::open(array('method' => 'put', 'url' => 'projects/' . $project->id)) !!}
+
                         @unless($method == 'delete')
+                            {!! Form::open(array('method' => 'put', 'url' => 'projects/' . $project->id)) !!}
                             <div class="form-group">
                                 {!! Form::label('name','Name:') !!}
                                 {!! Form::text('name', $project->name ,['class' => 'form-control']) !!}
                             </div>
                             <div class="form-group">
-                                {!! Form::label('category','Category:') !!}
-                                {!! Form::text('category', $project->category ,['class' => 'form-control']) !!}
+                                {!! Form::label('category_id','Category:') !!}
+                                {!! Form::select('category_id', App\Http\Controllers\ProjectController::getCategories()
+                                , $project->category_id,['class' => 'form-control']) !!}
                             </div>
                             <div class="form-group">
                                 {!! Form::label('description','Description:') !!}
                                 {!! Form::textarea('description', $project->description, ['class' => 'form-control'])
                                 !!}
                             </div>
+
+                            <div class="form-group">
+                                {!! Form::label('started_at','Started at:') !!}
+                                {!! Form::input('date','started_at', $project->started_at, ['class' => 'form-control'])
+                                !!}
+                            </div>
+
+                            <div class="form-group">
+                                {!! Form::label('ended_at','Ended at:') !!}
+                                {!! Form::input('date','ended_at', $project->ended_at, ['class' => 'form-control']) !!}
+                            </div>
+
                             <div class="form-group">
                                 {!! Form::submit("Save", array("class" => 'btn btn-primary form-control')) !!}
                             </div>
                             @else
+                                {!! Form::open(array('method' => 'delete', 'url' => 'projects/' . $project->id)) !!}
                                 {!! Form::submit('Delete', array('class' => 'btn btn-danger')) !!}
                             @endif
                             {!! Form::close() !!}

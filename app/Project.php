@@ -25,5 +25,24 @@ class Project extends Model
      *
      * @var array
      */
-    protected $fillable = ['name', 'category', 'description'];
+    protected $fillable = [
+        'name',
+        'category_id',
+        'description',
+        'started_at',
+        'ended_at'
+    ];
+
+    public function category()
+    {
+        return $this->belongsTo('App\ProjectCategory');
+    }
+
+
+
+    // setNameAttribute
+//    public function setStartedAtAttribute($date)
+//    {
+//        $this->attributes['started_at'] = ;
+//    }
 }

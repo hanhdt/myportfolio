@@ -42,7 +42,11 @@
                     <div class="portfolio-caption">
                         <h4>{{ $project->name }}</h4>
 
-                        <p class="text-muted"> {{ $project->category }}</p>
+                        <p class="text-info"> {{ $project->category->name }}</p>
+
+                        <p class="text-info">Started at: {{ $project->started_at }}</p>
+
+                        <p class="text-info">Ended at: {{ $project->ended_at }}</p>
                     </div>
                 </div>
             @endforeach

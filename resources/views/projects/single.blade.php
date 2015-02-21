@@ -14,18 +14,24 @@
                            class="btn btn-primary fa fa-minus-circle fa-inverse"> Delete</a>
 
                         <h2 class="section-heading">{{ $project->name }}</h2>
+
+                        <h3 class="section-subheading text-muted">Category: {{ $project->category->name }}</h3>
                     </div>
 
                     <div class="panel-body">
                         <div class="row">
                             <div class="col-lg-12">
-                                <h3 class="section-subheading text-muted">Category: {{ $project->category }}</h3>
 
-                                <p>Description: {{ $project->description }}</p>
 
-                                <p>Created at: {{ $project->created_at }}</p>
+                                <p class="text-info">Description: {{ $project->description }}</p>
 
-                                <p>Updated at: {{ $project->updated_at }}</p>
+                                <p class="text-info">Started at: {{ $project->started_at }}</p>
+
+                                <p class="text-info">Ended at: {{ $project->ended_at }}</p>
+
+                                <p class="text-info">Created at: {{ $project->created_at }}</p>
+
+                                <p class="text-info">Updated at: {{ $project->updated_at }}</p>
                             </div>
                         </div>
                     </div>

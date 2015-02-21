@@ -1,7 +1,9 @@
 <?php namespace App\Http\Controllers;
 
+use App\Contact;
 use App\Project;
 use App\SkillInformation;
+use Illuminate\Support\Facades\Request;
 
 class WelcomeController extends Controller {
 
@@ -43,10 +45,11 @@ class WelcomeController extends Controller {
 			]);
 	}
 
-	public function contact()
+    public function storeContact()
 	{
-		return view('welcome')
-			->with('id','contact');
+        $inputs = Request::all();
+        Contact::create($inputs);
+        return redirect('/', 201, ['message' => 'Successfully sent message!']);
 	}
 
 }

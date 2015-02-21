@@ -14,7 +14,8 @@ class DatabaseSeeder extends Seeder {
 	{
 		Model::unguard();
 //		$this->call('SkillInformationTableSeeder');
-        $this->call('ProjectTableSeeder');
+//        $this->call('ProjectTableSeeder');
+        $this->call('ProjectCategoriesTableSeeder');
 		//this message shown in your terminal after running db:seed command
         $this->command->info("Projects table seeded :)");
 		// $this->call('UserTableSeeder');

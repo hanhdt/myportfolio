@@ -1,9 +1,8 @@
 <?php namespace App\Http\Controllers;
 
-use App\Http\Requests;
-
 use App\Project;
-use Illuminate\Http\Request;
+use App\ProjectCategory;
+use Illuminate\Support\Facades\Request;
 
 class ProjectController extends Controller
 {
@@ -15,6 +14,19 @@ class ProjectController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
+    }
+
+    public static function getCategories()
+    {
+        $categories = ProjectCategory::all();
+        if (count($categories) > 0) {
+            $category_options = array_combine($categories->lists('id'),
+                $categories->lists('name'));
+        } else {
+            $category_options = array(null, 'Unspecified');
+        }
+
+        return $category_options;
     }
 
     /**
@@ -37,7 +49,7 @@ class ProjectController extends Controller
      */
     public function create()
     {
-        return view('projects.create');
+        return view('projects.create', ['method' => 'post']);
     }
 
     /**
@@ -47,8 +59,11 @@ class ProjectController extends Controller
      */
     public function store()
     {
-        $inputs = Request::all();
-        Project::create($inputs);
+//        $inputs = Request::all();
+        Project::create(array('name' => Request::get('name'), 'category_id' => Request::get('category_id'),
+            'description' => Request::get('description'), 'started_at' => Request::get('started_at'),
+            'ended_at' => Request::get('ended_at')));
+
         return redirect('projects', 201);
     }
 
@@ -93,9 +108,10 @@ class ProjectController extends Controller
     {
         $project = Project::find($id);
         $project->name = Request::get('name');
-        $project->category = Request::get('category');
+        $project->category_id = Request::get('category_id');
         $project->description = Request::get('description');
-
+        $project->started_at = Request::get('started_at');
+        $project->ended_at = Request::get('ended_at');
         $project->update($id);
 
         return redirect('projects/' . $id, 302);

@@ -12,7 +12,7 @@
 */
 
 Route::get('/', 'WelcomeController@index');
-Route::get('contact','WelcomeController@contact');
+//Route::post('welcomes','WelcomeController@storeContact');
 
 Route::get('home', 'HomeController@index');
 
@@ -28,3 +28,6 @@ Route::resource('skills', 'SkillInformationController');
 /** Project route resource */
 Route::get('projects/{projects}/delete', 'ProjectController@delete');
 Route::resource('projects', 'ProjectController');
+
+/** Contact route resource */
+Route::resource('contacts', 'ContactController');
