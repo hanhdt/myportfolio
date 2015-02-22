@@ -8,7 +8,7 @@
                     <div class="panel-heading">Home</div>
 
                     <div class="panel-body">
-                        <p>You are logged in!</p>
+                        <p>You are logged in as {{{ $user->name }}}</p>
                         <br>
 
                         <div class="btn-group btn-group-lg">

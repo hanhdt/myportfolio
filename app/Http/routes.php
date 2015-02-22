@@ -18,6 +18,7 @@ Route::get('home', 'HomeController@index');
 Route::controllers([
 	'auth' => 'Auth\AuthController',
 	'password' => 'Auth\PasswordController',
+    'about' => 'AboutController',
 ]);
 
 /** Skill information route resources **/
@@ -31,3 +32,4 @@ Route::resource('projects', 'ProjectController');
 /** Contact route resource */
 Route::get('contacts/{contacts}/delete', 'ContactController@delete');
 Route::resource('contacts', 'ContactController');
+

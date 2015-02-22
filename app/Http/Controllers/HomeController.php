@@ -34,14 +34,21 @@ class HomeController extends Controller {
 	 */
 	public function index()
 	{
+        // Get user logged in
+        $user = \Auth::user();
+        // Collect skills
         $skills = SkillInformation::all();
+        // Collect projects
         $projects = Project::all();
+        // Collects contacts received
         $contacts = Contact::all();
+
         return view('home')
             ->with([
                 'skills' => $skills,
                 'projects' => $projects,
                 'contacts' => $contacts,
+                'user' => $user,
             ]);
 	}
 
