@@ -68,7 +68,7 @@
                         </ul>
                     </li>
                     <li>
-                        <a class="page-scroll" href="{{url('skills')}}">Skills</a>
+                        <a class="page-scroll" href="#services">Skills</a>
                     </li>
                     <li>
                         <a class="page-scroll" href="#portfolio">Projects</a>

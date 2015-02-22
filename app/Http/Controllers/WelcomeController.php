@@ -1,5 +1,6 @@
 <?php namespace App\Http\Controllers;
 
+use App\About;
 use App\Contact;
 use App\Project;
 use App\SkillInformation;
@@ -37,11 +38,12 @@ class WelcomeController extends Controller {
 	{
 		$brief_skills = SkillInformation::all();
         $projects = Project::all();
-
+        $abouts = About::all();
 		return view('welcome.welcome')
 			->with([
 				'skills' => $brief_skills,
                 'projects' => $projects,
+                'abouts' => $abouts,
 			]);
 	}
 
