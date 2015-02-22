@@ -1,28 +1,30 @@
 @extends('default')
 
 @section('content')
-    <div class="container">
-        <div class="row">
-            <div class="col-md-10 col-md-offset-1">
-                <div class="panel panel-default">
-                    <div class="panel-heading">Home</div>
+    @if(Auth::check())
+        <div class="container">
+            <div class="row">
+                <div class="col-md-10 col-md-offset-1">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">Home</div>
 
-                    <div class="panel-body">
-                        <p>You are logged in as {{{ $user->name }}}</p>
-                        <br>
+                        <div class="panel-body">
+                            <p>You are logged in as {{{ $user->name }}}</p>
+                            <br>
 
-                        <div class="btn-group btn-group-lg">
-                            <a href="{{url('skills')}}" class="btn btn-primary">Skills</a>
-                            <a href="{{url('projects')}}" class="btn btn-primary">Projects</a>
-                            <a href="{{url('about')}}" class="btn btn-primary">About</a>
-                            <a href="{{url('team')}}" class="btn btn-primary">Team</a>
-                            <a href="{{url('contacts')}}" class="btn btn-primary">Contact</a>
+                            <div class="btn-group btn-group-lg">
+                                <a href="{{url('skills')}}" class="btn btn-primary">Skills</a>
+                                <a href="{{url('projects')}}" class="btn btn-primary">Projects</a>
+                                <a href="{{url('about')}}" class="btn btn-primary">About</a>
+                                <a href="{{url('team')}}" class="btn btn-primary">Team</a>
+                                <a href="{{url('contacts')}}" class="btn btn-primary">Contact</a>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
+        @endif
 
     <!-- Skills Section -->
     <section id="services">

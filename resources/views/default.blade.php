@@ -148,11 +148,19 @@
 </aside>
 
 <!-- Contact Section -->
-<section id="contact">
-    <div class="container">
-        @include('contacts.index')
-    </div>
-</section>
+@if(Auth::check())
+    <section id="contact">
+        <div class="container">
+            @include('contacts.index')
+        </div>
+    </section>
+@else
+    <section id="contact">
+        <div class="container">
+            @include('welcome.contact')
+        </div>
+    </section>
+@endif
 
 <footer>
     <div class="container">
