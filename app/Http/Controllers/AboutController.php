@@ -2,7 +2,6 @@
 
 use App\About;
 use App\Contact;
-use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Validator;
 use Request;
 
@@ -36,14 +35,14 @@ class AboutController extends Controller
         } else {
             if (Request::file('image')->isValid()) {
 
-                $destinationPath = 'uploads'; // upload path
+                $destinationPath = 'public/img/about'; // upload path
                 $extension = Request::file('image')->getClientOriginalExtension();
                 $fileName = rand(11111, 99999) . 'timeline' . '.' . $extension;
                 Request::file('image')->move($destinationPath, $fileName);
-                $inputs['image'] = $destinationPath . '/' . $fileName;
+                $inputs['image'] = 'img/about/' . $fileName;
                 About::create($inputs);
                 // sending back with message
-                Session::flash('message', 'Upload successfully');
+                \Session::flash('message', 'Upload successfully');
 
                 return redirect('about');
             } else {
