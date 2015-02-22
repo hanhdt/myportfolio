@@ -8,6 +8,15 @@ use Request;
 class AboutController extends Controller
 {
 
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
 
     public function getIndex()
     {
@@ -61,7 +70,10 @@ class AboutController extends Controller
      */
     public function index()
     {
-        return view('about.index');
+        $contacts = Contact::all();
+        $abouts = About::all();
+
+        return view('about.index', ['contacts' => $contacts, 'abouts' => $abouts]);
     }
 
     /**
@@ -71,7 +83,7 @@ class AboutController extends Controller
      */
     public function create()
     {
-        //
+        return view('about.create', ['method' => 'post']);
     }
 
     /**
@@ -90,9 +102,10 @@ class AboutController extends Controller
      * @param  int $id
      * @return Response
      */
-    public function show($id)
+    public function getShow($id)
     {
-        //
+        $about = About::findOrFail($id);
+        return view('about.single', ['about' => $about]);
     }
 
     /**
@@ -101,9 +114,10 @@ class AboutController extends Controller
      * @param  int $id
      * @return Response
      */
-    public function edit($id)
+    public function getEditing($id)
     {
-        //
+        $about = About::findOrFail($id);
+        return view('about.edit', ['about' => $about, 'method' => 'put']);
     }
 
     /**
@@ -112,9 +126,15 @@ class AboutController extends Controller
      * @param  int $id
      * @return Response
      */
-    public function update($id)
+    public function putUpdating($id)
     {
-        //
+
+    }
+
+    public function getDeleting($id)
+    {
+        $about = About::findOrFail($id);
+        return view('about.edit', ['about' => $about, 'method' => 'delete']);
     }
 
     /**
@@ -123,9 +143,9 @@ class AboutController extends Controller
      * @param  int $id
      * @return Response
      */
-    public function destroy($id)
+    public function deleteDestroy($id)
     {
-        //
+
     }
 
 }

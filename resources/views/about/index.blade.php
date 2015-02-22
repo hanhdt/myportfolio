@@ -34,7 +34,9 @@
                             <div class="timeline-panel">
                                 <div class="timeline-heading">
                                     <h4>{{ $about->milestone }}</h4>
-                                    <h4 class="subheading">{{ $about->title }}</h4>
+                                    <h4 class="subheading"><a
+                                                href="{{url('about/show/' . $about->id )}}"> {{ $about->title }} </a>
+                                    </h4>
                                 </div>
                                 <div class="timeline-body">
                                     <p class="text-muted"> {{ $about->description }}</p>

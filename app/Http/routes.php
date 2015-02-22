@@ -33,3 +33,6 @@ Route::resource('projects', 'ProjectController');
 Route::get('contacts/{contacts}/delete', 'ContactController@delete');
 Route::resource('contacts', 'ContactController');
 
+/** About resource */
+//Route::get('about/{about}/delete','AboutController@delete');
+//Route::resource('about', 'AboutController');
