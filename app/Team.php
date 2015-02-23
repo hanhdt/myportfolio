@@ -25,5 +25,5 @@ class Team extends Model
      *
      * @var array
      */
-    protected $fillable = ['name', 'title', 'facebook', 'linkedin', 'tweeter', 'brief_description'];
+    protected $fillable = ['name', 'title', 'avatar', 'birthday', 'facebook', 'linkedIn', 'tweeter', 'brief_description'];
 }
