@@ -25,7 +25,7 @@
                             </div>
                             <div class="form-group">
                                 {!! Form::label('email','Email:') !!}
-                                {!! Form::text('email', $user->name, ['class' => 'form-control']) !!}
+                                {!! Form::text('email', $user->email, ['class' => 'form-control']) !!}
                             </div>
 
                             <div class="form-group">
