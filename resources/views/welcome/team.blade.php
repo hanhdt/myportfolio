@@ -6,42 +6,27 @@
     </div>
 </div>
 <div class="row">
-    <div class="col-sm-6">
-        <div class="team-member">
-            <img src="img/team/hanh_1.jpg" class="img-responsive img-circle" alt="">
-            <h4>Hanh D. TRAN</h4>
+    @foreach($teams as $team)
+        <div class="col-sm-{{ 12 / count($teams) }}">
+            <div class="team-member">
+                <img src="{{ $team->avatar }}" class="img-responsive img-circle" alt="">
+                <h4>{{ $team->name }}</h4>
 
-            <p class="text-muted">Developer & Software Engineer</p>
-            <ul class="list-inline social-buttons">
-                <li><a href="#"><i class="fa fa-twitter"></i></a>
-                </li>
-                <li><a href="#"><i class="fa fa-facebook"></i></a>
-                </li>
-                <li><a href="#"><i class="fa fa-linkedin"></i></a>
-                </li>
-            </ul>
+                <p class="text-muted">{{ $team->title }}</p>
+                <ul class="list-inline social-buttons">
+                    <li><a href="{{ $team->tweeter }}"><i class="fa fa-twitter"></i></a>
+                    </li>
+                    <li><a href="{{ $team->facebook }}"><i class="fa fa-facebook"></i></a>
+                    </li>
+                    <li><a href="{{ $team->linkedIn }}"><i class="fa fa-linkedin"></i></a>
+                    </li>
+                </ul>
+            </div>
         </div>
-    </div>
-    <div class="col-sm-6">
-        <div class="team-member">
-            <img src="img/team/kien_1.jpg" class="img-responsive img-circle" alt="">
-            <h4>Kien T. TRAN</h4>
-
-            <p class="text-muted">Designer</p>
-            <ul class="list-inline social-buttons">
-                <li><a href="#"><i class="fa fa-twitter"></i></a>
-                </li>
-                <li><a href="#"><i class="fa fa-facebook"></i></a>
-                </li>
-                <li><a href="#"><i class="fa fa-linkedin"></i></a>
-                </li>
-            </ul>
-        </div>
-    </div>
+    @endforeach
 </div>
 <div class="row">
     <div class="col-lg-8 col-lg-offset-2 text-center">
-        <p class="large text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut eaque, laboriosam
-            veritatis, quos non quis ad perspiciatis, totam corporis ea, alias ut unde.</p>
+        <p class="large text-muted">We love to building high-quality software.</p>
     </div>
 </div>

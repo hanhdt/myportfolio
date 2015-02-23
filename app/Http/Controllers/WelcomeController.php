@@ -4,6 +4,7 @@ use App\About;
 use App\Contact;
 use App\Project;
 use App\SkillInformation;
+use App\Team;
 use Illuminate\Support\Facades\Request;
 
 class WelcomeController extends Controller {
@@ -39,11 +40,13 @@ class WelcomeController extends Controller {
 		$brief_skills = SkillInformation::all();
         $projects = Project::all();
         $abouts = About::all();
+        $teams = Team::all();
 		return view('welcome.welcome')
 			->with([
 				'skills' => $brief_skills,
                 'projects' => $projects,
                 'abouts' => $abouts,
+                'teams' => $teams,
 			]);
 	}
 

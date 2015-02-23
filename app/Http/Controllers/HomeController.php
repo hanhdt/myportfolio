@@ -4,6 +4,7 @@ use App\About;
 use App\Contact;
 use App\Project;
 use App\SkillInformation;
+use App\Team;
 
 class HomeController extends Controller {
 
@@ -45,12 +46,15 @@ class HomeController extends Controller {
         $contacts = Contact::all();
         // Abouts
         $abouts = About::all();
+
+        $teams = Team::all();
         return view('home')
             ->with([
                 'skills' => $skills,
                 'projects' => $projects,
                 'contacts' => $contacts,
                 'abouts' => $abouts,
+                'teams' => $teams,
                 'user' => $user,
             ]);
 	}

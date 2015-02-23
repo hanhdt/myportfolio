@@ -22,7 +22,6 @@ class AboutController extends Controller
     {
         $contacts = Contact::all();
         $abouts = About::all();
-
         return view('about.index', ['contacts' => $contacts, 'abouts' => $abouts]);
     }
 
@@ -60,7 +59,6 @@ class AboutController extends Controller
                 return redirect('about', 500);
             }
         }
-
     }
 
     /**

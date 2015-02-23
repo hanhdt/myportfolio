@@ -1,9 +1,9 @@
 <?php namespace App\Http\Controllers;
 
-use App\Http\Requests;
-use App\Http\Controllers\Controller;
-
-use Illuminate\Http\Request;
+use App\Contact;
+use App\Team;
+use Illuminate\Support\Facades\Validator;
+use Request;
 
 class TeamController extends Controller
 {
@@ -22,9 +22,11 @@ class TeamController extends Controller
      *
      * @return Response
      */
-    public function index()
+    public function getIndex()
     {
-        //
+        $contacts = Contact::all();
+        $teams = Team::all();
+        return view('team.index', ['contacts' => $contacts, 'teams' => $teams]);
     }
 
     /**
@@ -32,9 +34,9 @@ class TeamController extends Controller
      *
      * @return Response
      */
-    public function create()
+    public function getCreating()
     {
-        //
+        return view('team.create', ['method' => 'post']);
     }
 
     /**
@@ -42,9 +44,36 @@ class TeamController extends Controller
      *
      * @return Response
      */
-    public function store()
+    public function postStoring()
     {
-        //
+        $inputs = Request::all();
+        $file = array('image' => Request::file('avatar'));
+        // setting up rules
+        $rules = array('image' => 'required',); // 'mimes' => 'jpeg png gif jpg' and max => 10000
+        // doing the validation, passing post data, rules
+        $validator = Validator::make($file, $rules);
+        if ($validator->fails()) {
+            return redirect('team', ['error' => 'Can not upload image']);
+        } else {
+            if (Request::file('avatar')->isValid()) {
+
+                $destinationPath = 'public/img/team'; // upload path
+                $extension = Request::file('avatar')->getClientOriginalExtension();
+                $fileName = rand(11111, 99999) . '_member' . '.' . $extension;
+                Request::file('avatar')->move($destinationPath, $fileName);
+                $inputs['avatar'] = 'img/team/' . $fileName;
+
+                Team::create($inputs);
+                // sending back with message
+                \Session::flash('message', 'Upload successfully');
+
+                return redirect('team', 201);
+            } else {
+                // sending back with error message
+                \Session::flash('error', 'uploaded file is not valid!');
+                return redirect('team', 500);
+            }
+        }
     }
 
     /**
@@ -53,9 +82,10 @@ class TeamController extends Controller
      * @param  int $id
      * @return Response
      */
-    public function show($id)
+    public function getShowing($id)
     {
-        //
+        $team = Team::findOrFail($id);
+        return view('team.single', ['team' => $team]);
     }
 
     /**
@@ -64,9 +94,10 @@ class TeamController extends Controller
      * @param  int $id
      * @return Response
      */
-    public function edit($id)
+    public function getEditing($id)
     {
-        //
+        $team = Team::findOrFail($id);
+        return view('team.edit', ['team' => $team, 'method' => 'put']);
     }
 
     /**
@@ -75,9 +106,15 @@ class TeamController extends Controller
      * @param  int $id
      * @return Response
      */
-    public function update($id)
+    public function putUpdating($id)
     {
         //
+    }
+
+    public function getDeleting($id)
+    {
+        $team = Team::findOrFail($id);
+        return view('team.edit', ['team' => $team, 'method' => 'put']);
     }
 
     /**
@@ -86,9 +123,9 @@ class TeamController extends Controller
      * @param  int $id
      * @return Response
      */
-    public function destroy($id)
+    public function deleteDestroying($id)
     {
-        //
+
     }
 
 }
