@@ -1,8 +1,8 @@
 <div class="row">
     <div class="col-lg-12 text-center">
-        <h2 class="section-heading">Our Amazing Team</h2>
+        <h2 class="section-heading">Amazing Member</h2>
 
-        <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+        {{--<h3 class="section-subheading text-muted">Talented member.</h3>--}}
     </div>
 </div>
 <div class="row">
@@ -27,6 +27,6 @@
 </div>
 <div class="row">
     <div class="col-lg-8 col-lg-offset-2 text-center">
-        <p class="large text-muted">We love to building high-quality software.</p>
+        <p class="large text-muted">I love to building high-quality software</p>
     </div>
 </div>

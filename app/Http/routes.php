@@ -20,6 +20,7 @@ Route::controllers([
 	'password' => 'Auth\PasswordController',
     'about' => 'AboutController',
     'team' => 'TeamController',
+    'user' => 'UserController',
 ]);
 
 /** Skill information route resources **/
