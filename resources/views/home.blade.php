@@ -19,6 +19,7 @@
                                 <a href="{{url('team')}}" class="btn btn-primary">Team</a>
                                 <a href="{{url('contacts')}}" class="btn btn-primary">Contact</a>
                                 <a href="{{url('user')}}" class="btn btn-primary">Users</a>
+                                <a href="{{url('subscribes')}}" class="btn btn-primary">Subscribes</a>
                             </div>
                         </div>
                     </div>

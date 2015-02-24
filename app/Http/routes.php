@@ -21,6 +21,7 @@ Route::controllers([
     'about' => 'AboutController',
     'team' => 'TeamController',
     'user' => 'UserController',
+    'subscribes' => 'SubscribeController',
 ]);
 
 /** Skill information route resources **/
