@@ -28,7 +28,7 @@
 
                                 <p class="text-info">Birthday: {{ $team->birthday }}</p>
 
-                                <p class="item">Image: <img src="../../{{ $team->avatar }}"></p>
+                                <p class="item">Image: <img src="../../{{ $team->avatar }}" class="img-responsive"></p>
 
                                 <p class="text-info">Facebook: {{ $team->facebook }}</p>
 

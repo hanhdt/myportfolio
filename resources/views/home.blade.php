@@ -1,33 +1,6 @@
 @extends('default')
 
 @section('content')
-    @if(Auth::check())
-        <div class="container">
-            <div class="row">
-                <div class="col-md-10 col-md-offset-1">
-                    <div class="panel panel-default">
-                        <div class="panel-heading">Home</div>
-
-                        <div class="panel-body">
-                            <p>You are logged in as {{{ $user->name }}}</p>
-                            <br>
-
-                            <div class="btn-group btn-group-lg">
-                                <a href="{{url('skills')}}" class="btn btn-primary">Skills</a>
-                                <a href="{{url('projects')}}" class="btn btn-primary">Projects</a>
-                                <a href="{{url('about')}}" class="btn btn-primary">About</a>
-                                <a href="{{url('team')}}" class="btn btn-primary">Team</a>
-                                <a href="{{url('contacts')}}" class="btn btn-primary">Contact</a>
-                                <a href="{{url('user')}}" class="btn btn-primary">Users</a>
-                                <a href="{{url('subscribes')}}" class="btn btn-primary">Subscribes</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        @endif
-
     <!-- Skills Section -->
     <section id="services">
         <div class="container">

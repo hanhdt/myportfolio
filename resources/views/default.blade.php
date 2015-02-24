@@ -46,7 +46,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand page-scroll" href="{{url('/')}}">Hi, let's start tour!</a>
+            <a class="navbar-brand page-scroll" href="#page-top">Hi, let's start tour!</a>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
@@ -98,6 +98,33 @@
             <a href="#services" class="page-scroll btn btn-xl">Tell Me More</a>
         </div>
     </div>
+
+    @if(Auth::check())
+        <div class="container">
+            <div class="row">
+                <div class="col-md-10 col-md-offset-1">
+                    <div class="panel panel-default">
+                        <div class="panel-heading text-uppercase">Admin Navigation</div>
+
+                        <div class="panel-body">
+                            <p class="text-info text-left">You are logged in as {{{ $user->name }}} - administrator</p>
+
+                            <div class="btn-group-vertical btn-group-lg btn-block" role="group">
+                                <a href="{{url('skills')}}" class="btn btn-primary">Skills</a>
+                                <a href="{{url('projects')}}" class="btn btn-primary">Projects</a>
+                                <a href="{{url('about')}}" class="btn btn-primary">About</a>
+                                <a href="{{url('team')}}" class="btn btn-primary">Team</a>
+                                <a href="#contact" class="btn btn-primary page-scroll">Contact</a>
+                                <a href="{{url('user')}}" class="btn btn-primary">Users</a>
+                                <a href="{{url('subscribes')}}" class="btn btn-primary">Subscribes</a>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    @endif
 </header>
 
 <!-- Content -->
@@ -114,7 +141,6 @@
                 {{Session::get('error')}}
             </div>
         @endif
-
         @yield('content')
     </div>
 </section>
