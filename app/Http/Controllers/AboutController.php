@@ -21,7 +21,7 @@ class AboutController extends Controller
     public function getIndex()
     {
         $contacts = Contact::all();
-        $abouts = About::all();
+        $abouts = About::all()->sortByDesc('created_at');
         return view('about.index', ['contacts' => $contacts, 'abouts' => $abouts]);
     }
 
@@ -69,8 +69,7 @@ class AboutController extends Controller
     public function index()
     {
         $contacts = Contact::all();
-        $abouts = About::all();
-
+        $abouts = About::all()->sortByDesc('created_at');
         return view('about.index', ['contacts' => $contacts, 'abouts' => $abouts]);
     }
 
