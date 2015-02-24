@@ -1,6 +1,7 @@
 <?php namespace App\Http\Controllers;
 
 use App\Subscribe;
+use Illuminate\Support\Facades\Mail;
 use Request;
 
 class SubscribeController extends Controller
@@ -41,7 +42,16 @@ class SubscribeController extends Controller
     {
         $inputs = Request::all();
         Subscribe::create($inputs);
-        \Session::flash('message', 'You are subscribed to our Newsletter and Updates!');
+
+        /** Send email for subscribing */
+        Mail::send('emails.subscribed', ['subscribed' => $inputs['email']], function ($message) {
+
+            $message->to(Request::get('email'), 'Subscriber')->subject('Welcome to the my portfolio!');
+
+        });
+
+        \Session::flash('message', 'You are subscribed to our Newsletter and Updates! A notice was sent to your email, thank you.');
+
         return redirect('/', 201);
     }
 
