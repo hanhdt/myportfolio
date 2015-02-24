@@ -12,7 +12,9 @@
 
                 <div class="panel-body">
                     <div class="btn-group btn-group-lg">
-                        <a href="{{url('about/timeline')}}" class="btn btn-primary">Create a time-line</a>
+                        {!! link_to_action('AboutController@getTimeline','Create a Time-line',null,['class' => 'btn
+                        btn-primary']) !!}
+                        {{--<a href="{{url('about/timeline')}}" class="btn btn-primary">Create a time-line</a>--}}
                     </div>
                 </div>
             </div>
@@ -34,8 +36,10 @@
                             <div class="timeline-panel">
                                 <div class="timeline-heading">
                                     <h4>{{ $about->milestone }}</h4>
-                                    <h4 class="subheading"><a
-                                                href="{{url('about/show/' . $about->id )}}"> {{ $about->title }} </a>
+                                    <h4 class="subheading">
+                                        {!! link_to_action('AboutController@getShow', $about->title, [$about->id], null)
+                                        !!}
+                                        {{--<a href="{{url('about/show/' . $about->id )}}"> {{ $about->title }} </a>--}}
                                     </h4>
                                 </div>
                                 <div class="timeline-body">
