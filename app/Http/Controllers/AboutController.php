@@ -126,7 +126,40 @@ class AboutController extends Controller
      */
     public function putUpdating($id)
     {
+        $inputs = Request::all();
+        $file = array('image' => Request::file('image'));
+        // setting up rules
+        $rules = array('image' => 'required',); // 'mimes' => 'jpeg png gif jpg' and max => 10000
+        // doing the validation, passing post data, rules
+        $validator = Validator::make($file, $rules);
+        if ($validator->fails()) {
+            return redirect('about', ['error' => 'Can not upload image']);
+        } else {
+            if (Request::file('image')->isValid()) {
 
+                $destinationPath = 'public/img/about'; // upload path
+                $extension = Request::file('image')->getClientOriginalExtension();
+                $fileName = rand(11111, 99999) . 'timeline' . '.' . $extension;
+                Request::file('image')->move($destinationPath, $fileName);
+                $inputs['image'] = 'img/about/' . $fileName;
+                // Update model
+                $about = About::findOrFail($id);
+                $about->title = $inputs['title'];
+                $about->milestone = $inputs['milestone'];
+                $about->description = $inputs['description'];
+                $about->image = $inputs['image'];
+                $about->update();
+
+                // sending back with message
+                \Session::flash('message', 'Upload successfully');
+
+                return redirect('about', 302);
+            } else {
+                // sending back with error message
+                \Session::flash('error', 'uploaded file is not valid!');
+                return redirect('about', 500);
+            }
+        }
     }
 
     public function getDeleting($id)
@@ -143,7 +176,10 @@ class AboutController extends Controller
      */
     public function deleteDestroy($id)
     {
-
+        $about = About::find($id);
+        $about->delete();
+        \Session::flash('message', 'Successfully deleted #' . $about->title . '!');
+        return redirect('about', 302);
     }
 
 }
