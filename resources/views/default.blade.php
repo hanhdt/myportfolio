@@ -107,7 +107,7 @@
                         <div class="panel-heading text-uppercase">Admin Navigation</div>
 
                         <div class="panel-body">
-                            <p class="text-info text-left">You are logged in as {{{ $user->name }}} - administrator</p>
+                            <p class="text-info text-left">You are logged in as {{ Auth::user()->name }} - administrator</p>
 
                             <div class="btn-group-vertical btn-group-lg btn-block" role="group">
                                 <a href="{{url('skills')}}" class="btn btn-primary">Skills</a>
