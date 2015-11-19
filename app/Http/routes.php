@@ -22,6 +22,7 @@ Route::controllers([
     'team' => 'TeamController',
     'user' => 'UserController',
     'subscribes' => 'SubscribeController',
+	'image' => 'ImageController'
 ]);
 
 /** Skill information route resources **/
@@ -35,3 +36,8 @@ Route::resource('projects', 'ProjectController');
 /** Contact route resource */
 Route::get('contacts/{contacts}/delete', 'ContactController@delete');
 Route::resource('contacts', 'ContactController');
+
+// Photos page
+get('photos', 'ImageController@getIndex');
+get('photos/upload', 'ImageController@create');
+post('photos/upload', 'ImageController@store');
