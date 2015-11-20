@@ -16,7 +16,7 @@ class ImageController extends Controller {
 	 */
 	public function __construct()
 	{
-		$this->middleware('auth');
+//		$this->middleware('auth');
 	}
 
 
@@ -29,14 +29,14 @@ class ImageController extends Controller {
 	{
 //		dd(Auth::check());
 		// Load the form view
-		if(Auth::check()){
+//		if(Auth::check()){
 			$images = Photo::all();
 			return view('photos.index', array(
 					'images' => $images
 			));
-		} else {
-			return response('Unauthorized.', 401);
-		}
+//		} else {
+//			return response('Unauthorized.', 401);
+//		}
 
 	}
 

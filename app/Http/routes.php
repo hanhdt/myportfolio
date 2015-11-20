@@ -40,6 +40,6 @@ Route::resource('contacts', 'ContactController');
 // Photos page
 get('photos/{id}', 'ImageController@show')->where('id', '[0-9]+'); // using regular expression, filtered it first hand, whether it's a natural number or not
 get('photos', 'ImageController@getIndex');
-get('photos/upload', 'ImageController@create');
-post('photos/upload', 'ImageController@store');
-get('photos/{id}/delete', 'ImageController@destroy')->where('id', '[0-9]+');
+get('photos/upload', ['middleware' => 'auth', 'uses' => 'ImageController@create']);
+post('photos/upload', ['middleware' => 'auth', 'uses' => 'ImageController@store']);
+get('photos/{id}/delete', ['middleware' => 'auth', 'uses' => 'ImageController@destroy'])->where('id', '[0-9]+');
