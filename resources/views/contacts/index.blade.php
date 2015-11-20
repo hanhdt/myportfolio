@@ -9,9 +9,9 @@
     <div class="table-responsive">
         <table class="table table-bordered table-hover">
             <thead>
-            <th class="text-uppercase text-info">Name</th>
-            <th class="text-uppercase text-info">Email</th>
-            <th class="text-uppercase text-info">Created at</th>
+                <th class="text-uppercase text-info">Name</th>
+                <th class="text-uppercase text-info">Email</th>
+                <th class="text-uppercase text-info">Created at</th>
             </thead>
             <tbody>
             @foreach($contacts as $contact)

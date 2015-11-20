@@ -11,9 +11,9 @@
 |
 */
 
-Route::get('/', 'WelcomeController@index');
-Route::get('index', 'WelcomeController@index');
-Route::get('home', 'HomeController@index');
+get('/', 'WelcomeController@index');
+get('index', 'WelcomeController@index');
+get('home', 'HomeController@index');
 
 Route::controllers([
 	'auth' => 'Auth\AuthController',
@@ -38,6 +38,7 @@ Route::get('contacts/{contacts}/delete', 'ContactController@delete');
 Route::resource('contacts', 'ContactController');
 
 // Photos page
+get('photos/{id}', 'ImageController@show')->where('id', '[0-9]+'); // using regular expression, filtered it first hand, whether it's a natural number or not
 get('photos', 'ImageController@getIndex');
 get('photos/upload', 'ImageController@create');
 post('photos/upload', 'ImageController@store');

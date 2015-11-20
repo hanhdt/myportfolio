@@ -4,7 +4,6 @@ use App\Http\Requests;
 
 use App\Photo;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Str;
 use Intervention\Image\Facades\Image;
@@ -19,7 +18,10 @@ class ImageController extends Controller {
 	public function getIndex()
 	{
 		// Load the form view
-        return view('photos.index');
+		$images = Photo::all();
+        return view('photos.index', array(
+			'images' => $images
+		));
 	}
 
 	/**
@@ -29,7 +31,6 @@ class ImageController extends Controller {
 	 */
 	public function create()
 	{
-		//
         return view('photos.upload', ['method' => 'post']);
 	}
 
@@ -93,7 +94,13 @@ class ImageController extends Controller {
 	 */
 	public function show($id)
 	{
-		//
+		// find the image from database first
+		$image = Photo::find($id);
+		if(isset($image)){
+			return view('photos.single', array('image' => $image));
+		} else {
+			return redirect('/photos')->with('message', 'Image not found');
+		}
 	}
 
 	/**

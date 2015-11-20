@@ -9,17 +9,17 @@
 	<title>Hanh D. TRAN Portfolio</title>
 
 	<!-- Bootstrap Core CSS -->
-	<link href="css/bootstrap.min.css" rel="stylesheet">
+	<link href="/css/bootstrap.min.css" rel="stylesheet">
 
 	<!-- Custom CSS -->
-	<link href="css/agency.css" rel="stylesheet">
+	<link href="/css/agency.css" rel="stylesheet">
 	<link href="/css/app.css" rel="stylesheet">
 
 
 	<!-- Custom Fonts -->
 	<!-- Fonts -->
-	<link href='//fonts.googleapis.com/css?family=Roboto:400,300' rel='stylesheet' type='text/css'>
-	<link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+	<link href='http://fonts.googleapis.com/css?family=Roboto:400,300' rel='stylesheet' type='text/css'>
+	<link href="/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 	<link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
 	<link href='http://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
 	<link href='http://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
@@ -84,20 +84,20 @@
 	{{--<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>--}}
 	{{--<script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.1/js/bootstrap.min.js"></script>--}}
 	<!-- jQuery -->
-	<script src="js/jquery.js"></script>
+	<script src="/js/jquery.js"></script>
 
 	<!-- Bootstrap Core JavaScript -->
-	<script src="js/bootstrap.min.js"></script>
+	<script src="/js/bootstrap.min.js"></script>
 
 	<!-- Plugin JavaScript -->
 	<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
-	<script src="js/classie.js"></script>
-	<script src="js/cbpAnimatedHeader.js"></script>
+	<script src="/js/classie.js"></script>
+	<script src="/js/cbpAnimatedHeader.js"></script>
 
 	<!-- Contact Form JavaScript -->
-	<script src="js/jqBootstrapValidation.js"></script>
+	<script src="/js/jqBootstrapValidation.js"></script>
 
 	<!-- Custom Theme JavaScript -->
-	<script src="js/agency.js"></script>
+	<script src="/js/agency.js"></script>
 </body>
 </html>
