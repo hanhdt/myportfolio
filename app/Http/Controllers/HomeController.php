@@ -5,7 +5,7 @@ use App\Contact;
 use App\Project;
 use App\SkillInformation;
 use App\Team;
-
+use Illuminate\Support\Facades\Auth;
 class HomeController extends Controller {
 
 	/*
@@ -37,7 +37,7 @@ class HomeController extends Controller {
 	public function index()
 	{
         // Get user logged in
-        $user = \Auth::user();
+        $user = Auth::user();
         // Collect skills
         $skills = SkillInformation::all();
         // Collect projects

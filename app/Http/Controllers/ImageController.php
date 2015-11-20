@@ -4,12 +4,21 @@ use App\Http\Requests;
 
 use App\Photo;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Str;
 use Intervention\Image\Facades\Image;
 
 class ImageController extends Controller {
+	/**
+	 * ImageController constructor.
+	 */
+	public function __construct()
+	{
+		$this->middleware('auth');
+	}
+
 
 	/**
 	 * Display a listing of the resource.
@@ -18,11 +27,17 @@ class ImageController extends Controller {
 	 */
 	public function getIndex()
 	{
+//		dd(Auth::check());
 		// Load the form view
-		$images = Photo::all();
-        return view('photos.index', array(
-			'images' => $images
-		));
+		if(Auth::check()){
+			$images = Photo::all();
+			return view('photos.index', array(
+					'images' => $images
+			));
+		} else {
+			return response('Unauthorized.', 401);
+		}
+
 	}
 
 	/**
