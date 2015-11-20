@@ -11,7 +11,8 @@
             <thead >
                 <th class="text-uppercase text-info">Title</th>
                 <th class="text-uppercase text-info">Image</th>
-                <th class="text-uppercase text-info">Created at</th>`
+                <th class="text-uppercase text-info">Created at</th>
+                <td class="text-uppercase text-danger">Operations</td>
             </thead>
             <tbody>
                 @foreach($images as $image)
@@ -30,6 +31,9 @@
 
                                 <td>
                                     <p class="text-info">Created at: {{ $image->created_at }}</p>
+                                </td>
+                                <td>
+                                    {!! Html::link('photos/' . $image->id . '/delete', 'Delete', array('class' => 'btn btn-danger'))  !!}
                                 </td>
                             </div>
                         </div>

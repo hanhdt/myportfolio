@@ -4,6 +4,7 @@ use App\Http\Requests;
 
 use App\Photo;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Str;
 use Intervention\Image\Facades\Image;
@@ -73,7 +74,7 @@ class ImageController extends Controller {
                     Session::flash('message','Upload successfully! ' . $message);
                 }
                 else{
-                    Session::flash('message','Upload unsuccessfully!!! ');
+                    Session::flash('error','Upload unsuccessfully!!! ');
                 }
             }
 
@@ -81,7 +82,7 @@ class ImageController extends Controller {
         }
         catch (\Exception $e){
             info($e, ['context' => 'ImageController#store']);
-            return redirect('photos', 302);
+            return redirect('photos', 302)->with('error', 'Has got fails!');
         }
 
 	}
@@ -99,7 +100,7 @@ class ImageController extends Controller {
 		if(isset($image)){
 			return view('photos.single', array('image' => $image));
 		} else {
-			return redirect('/photos')->with('message', 'Image not found');
+			return redirect('/photos')->with('error', 'Image not found');
 		}
 	}
 
@@ -133,7 +134,21 @@ class ImageController extends Controller {
 	 */
 	public function destroy($id)
 	{
-		//
+		$image = Photo::find($id);
+
+		if(isset($image)){
+			// First, lets delete the images from FPT
+			File::delete(config('image.upload_folder') . '/' . $image->image);
+			File::delete(config('image.thumb_folder') . '/' .$image->image);
+			// delete the record from database
+			$image->delete();
+
+			// return the main page with a success message
+			return redirect('/photos')->with('message', 'Image deleted successfully!');
+		}
+		else {
+			return redirect('photos')->with('error', 'No image with given ID found');
+		}
 	}
 
 }

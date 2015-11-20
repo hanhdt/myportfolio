@@ -42,3 +42,4 @@ get('photos/{id}', 'ImageController@show')->where('id', '[0-9]+'); // using regu
 get('photos', 'ImageController@getIndex');
 get('photos/upload', 'ImageController@create');
 post('photos/upload', 'ImageController@store');
+get('photos/{id}/delete', 'ImageController@destroy')->where('id', '[0-9]+');
