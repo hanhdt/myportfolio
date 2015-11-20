@@ -1,8 +1,11 @@
 @extends('app')
 
 @section('content')
-    <a href="/photos/upload" class="btn btn-primary">Upload photo</a>
+   <div class="container-fluid">
+       <a href="/photos/upload" class="btn btn-default">Upload photo</a>
+   </div>
     <div class="container-fluid">
+
         @if(count($images))
             <table class="table table-responsive">
             <thead >
