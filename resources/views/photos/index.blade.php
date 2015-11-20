@@ -2,9 +2,9 @@
 
 @section('content')
     <a href="/photos/upload" class="btn btn-primary">Upload photo</a>
-
     <div class="container-fluid">
-        <table class="table table-responsive">
+        @if(count($images))
+            <table class="table table-responsive">
             <thead >
                 <th class="text-uppercase text-info">Title</th>
                 <th class="text-uppercase text-info">Image</th>
@@ -35,5 +35,9 @@
             </tbody>
 
         </table>
+        @else
+            <p>No images uploaded yet, {!! Html::link('/photos/upload','Would like to upload one?') !!}</p>
+        @endif
     </div>
 @endsection
+@stop
