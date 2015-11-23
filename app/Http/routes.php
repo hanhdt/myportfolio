@@ -11,6 +11,7 @@
 |
 */
 
+
 use Illuminate\Support\Facades\Route;
 
 get('/', 'WelcomeController@index');
@@ -45,3 +46,22 @@ get('photos', 'ImageController@getIndex');
 get('photos/upload', ['middleware' => 'auth', 'uses' => 'ImageController@create']);
 post('photos/upload', ['middleware' => 'auth', 'uses' => 'ImageController@store']);
 get('photos/{id}/delete', ['middleware' => 'auth', 'uses' => 'ImageController@destroy'])->where('id', '[0-9]+');
+
+// Posts routes
+Route::get('posts', [
+	'as' => 'all_posts',
+	'uses' => 'PostsController@index'
+]);
+
+Route::get('/posts/create', [
+	'as' => 'posts_create',
+	'middleware' => 'auth',
+	'uses' => 'PostsController@create'
+]);
+
+Route::post('/posts/create', [
+	'as' => 'posts_store',
+	'middleware' => 'auth',
+	'uses' => 'PostsController@store'
+]);
+
