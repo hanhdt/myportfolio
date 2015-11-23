@@ -11,6 +11,8 @@
 |
 */
 
+use Illuminate\Support\Facades\Route;
+
 get('/', 'WelcomeController@index');
 get('index', 'WelcomeController@index');
 get('home', 'HomeController@index');

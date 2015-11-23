@@ -31,4 +31,25 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
 	 */
 	protected $hidden = ['password', 'remember_token'];
 
+	/**
+	 * get the unique identifier for the user
+	 * @return mixed
+	 */
+	public function getAuthIdentifier()
+	{
+		// Implement getAuthIdentifier() method.
+		return $this->getKey();
+	}
+
+	public function getAuthPassword()
+	{
+		// Implement getAuthPassword() method.
+		return $this->password;
+	}
+
+	public function getEmailForPasswordReset()
+	{
+		// Implement getEmailForPasswordReset() method.
+		return $this->email;
+	}
 }

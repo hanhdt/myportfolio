@@ -14,6 +14,7 @@ return array(
 
     'thumb_folder' => 'uploads/thumbs', // the folder that will hold thumbnails
 
+
     'thumb_width' => 320, // width of the re-sized thumbnail
 
     'thumb_height' => 240 // height of the re-sized thumbnail
