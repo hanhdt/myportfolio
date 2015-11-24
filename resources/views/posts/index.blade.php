@@ -14,6 +14,7 @@
                     <p><small>Posted by <b> {!! $post->Author->name !!}</b> at <b>{!! $post->created_at !!}</b></small></p>
                 </article>
             @endforeach
+            {!! $posts->render() !!}
         @else
             <p>No Posts uploaded yet, {!! Html::link('/posts/create','Would like to upload one?') !!}</p>
         @endif

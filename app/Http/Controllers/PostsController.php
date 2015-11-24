@@ -28,7 +28,7 @@ class PostsController extends Controller {
     * @return Response
     */
     public function index(){
-        $posts = Post::with('Author')->orderBy('id', 'DESC')->get();
+        $posts = Post::with('Author')->orderBy('id', 'DESC')->paginate(5);
         return view('posts.index')->with('posts', $posts);
     }
    /**
