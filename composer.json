@@ -16,6 +16,12 @@
 	},
 	"autoload": {
 		"classmap": [
+			"app/",
+			"app/commands",
+			"app/http",
+			"app/providers",
+			"app/console",
+			"app/services",
 			"database"
 		],
 		"psr-4": {
