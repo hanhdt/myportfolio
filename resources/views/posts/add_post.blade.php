@@ -11,6 +11,13 @@
                 </div>
             </div>
             <div class="form-group">
+                <label class="col-sm-2 control-label" for="content">Post Content</label>
+                <div class="col-sm-10">
+                    {!! Form::textarea('content', '' , array('placeholder' => 'Please insert post content here', 'class' => 'form-control')) !!}
+                    <p class="label-danger">{!! $errors->first('content') !!}</p>
+                </div>
+            </div>
+            <div class="form-group">
                 <div class="col-sm-offset-2 col-sm-10">
                     {!! Form::submit('save', array('name' => 'send', 'class' => 'btn btn-primary')) !!}
                 </div>

@@ -10,6 +10,7 @@ namespace App\Http\Controllers;
 
 
 use App\Post;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Session;
 
@@ -44,8 +45,17 @@ class PostsController extends Controller {
     * @return Response
     */
     public function store(){
-        $post_title = Input::get('title');
-        Session::flash('message', "Post title: " . $post_title);
+        try{
+            $post_title = Input::get('title');
+            $post_content = Input::get('content');
+            $author_id = Auth::user()->id;
+            $category_id = 0;
+            Post::create(array('title' => $post_title, 'content' => $post_content, 'author_id' => $author_id, 'category_id' => $category_id));
+            Session::flash('message', "Added post successfully!");
+        }
+        catch(\Exception $e){
+            Session::flash('error', "Added post failed!");
+        }
         return redirect('posts');
     }
    /**

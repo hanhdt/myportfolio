@@ -29,6 +29,6 @@ class Post extends Model {
     public $timestamps = true;
 
     public function Author(){
-        return $this->belongsTo('User', 'author_id');
+        return $this->belongsTo('App\User', 'author_id');
     }
 }
