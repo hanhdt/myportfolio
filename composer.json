@@ -5,7 +5,7 @@
 	"license": "MIT",
 	"type": "project",
 	"require": {
-      	"laravel/framework": "5.0.*",
+      	"laravel/framework": "~5.1",
       	"illuminate/html": "~5.0",
 		"intervention/image": "dev-master"
 	},
@@ -17,11 +17,6 @@
 	"autoload": {
 		"classmap": [
 			"app/",
-			"app/commands",
-			"app/http",
-			"app/providers",
-			"app/console",
-			"app/services",
 			"database"
 		],
 		"psr-4": {

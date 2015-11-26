@@ -13,11 +13,11 @@ class DatabaseSeeder extends Seeder {
 	public function run()
 	{
 		Model::unguard();
-//		$this->call('SkillInformationTableSeeder');
-//        $this->call('ProjectTableSeeder');
-        $this->call('ProjectCategoriesTableSeeder');
+		// $this->call('SkillInformationTableSeeder');
+	       	// $this->call('ProjectTableSeeder');
+        	$this->call('BookTableSeeder');
 		//this message shown in your terminal after running db:seed command
-        $this->command->info("Projects table seeded :)");
+        	$this->command->info("books table seeded :)");
 		// $this->call('UserTableSeeder');
 	}
 
